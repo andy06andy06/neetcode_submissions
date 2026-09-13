@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> hashmap;
+        int diff;
+        for(int i = 0; i<nums.size(); i++){
+            hashmap[nums[i]] = i;
+        }
+        for(int i = 0; i<nums.size(); i++){
+            diff = target - nums[i];
+            if(hashmap.count(diff) && hashmap[diff]!=i){
+                return {i, hashmap[diff]};
+            }
+        }
+    }
+};
